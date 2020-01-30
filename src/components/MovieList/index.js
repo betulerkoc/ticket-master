@@ -13,6 +13,8 @@ export default function MovieList() {
 const {movies} = React.useContext(MoviesContext);
 
 console.log(movies);
+
+
 if (movies.length === 0) return <Loading/>
 
 return (

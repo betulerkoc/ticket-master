@@ -18,9 +18,7 @@ export default function Detail() {
                     <h1>Detail: </h1>
                     <a href="#"><img src={m.image} alt="" style={{height: "150px"}}/></a>
                     <h4>Name: {m.name}</h4>
-                    <h6>Description: {m.description}</h6>
-                    <h6>Age: {m.age}</h6>
-                    <h6>Breed: {m.breed}</h6>
+                    <h6>Category: {m._embedded.categories[0].name}</h6>
             </div>
         )
 }

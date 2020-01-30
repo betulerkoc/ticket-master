@@ -1,6 +1,6 @@
 import React from 'react'
 import {SearchComp} from './styles/index'
-import {MoviesContext} from '../../context/movies'
+
 
 export default function Search() {
 
