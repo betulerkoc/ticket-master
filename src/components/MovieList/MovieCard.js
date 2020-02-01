@@ -1,37 +1,26 @@
-// import { StyledMovie } from './styles';
-// import Button from '../Button';
-
-// export const Movie = () => {
-//     <StyledMovie>
-//         <Button name="Betül">Test</Button>
-//     </StyledMovie>
-// };
-
-
 import React from 'react'
 import {BoxStyle, StyledLink} from './styles/index'
 
-export default function MovieCard({name, id, dates, _links, _embedded}) {
+export default function MovieCard({name, id, dates, images, classifications}) {
     const url= "http://app.ticketmaster.com/";
     
     return (
         <>
             <BoxStyle>
-                <StyledLink to={`${id}`}>  
-                {/* <a href="#"><img src={`${url}${_links.attractions}`} alt="" style={{height: "150px"}}/></a> */}
-                {/* {`${_embedded.attractions[0].image.url}`}; */}
+                <StyledLink to={id}>  
+                <a href="#"><img src={images[0].url} alt="" style={{height: "150px"}}/></a> 
                 <div>
                     <h4>
                        Name:  {name}
                     </h4>
                     <p>
-                       Time Zone:  {dates.timezone}
+                       Category:  {classifications[0].segment.name}
+                    </p>
+                    <p>
+                       Genre:  {classifications[0].genre.name}
                     </p>
                     <p>
                        Date: {dates.start.localDate}
-                    </p>
-                    <p>
-                        Category: {_embedded.categories[0].name}
                     </p>
                 </div>
                 {console.log(id)}

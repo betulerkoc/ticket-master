@@ -7,7 +7,7 @@
 //         .then((resp) => resp.json())
 // };
 
-const rootApiURL = "http://app.ticketmaster.com/discovery/v1/events.json?&";
+const rootApiURL = "http://app.ticketmaster.com/discovery/v2/events.json?&";
 const apiKey = "apikey=6VZ4GKibC9XVGHFYqTMof7So3DS06y5Y";
 
 export const getMovies = () => {

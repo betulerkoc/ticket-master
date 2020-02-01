@@ -1,7 +1,3 @@
-// export const MovieList = () => {
-//     <div>test</div>
-// };
-
 import React from 'react'
 import MovieCard from './MovieCard'
 import {MoviesContext} from '../../context/movies'
@@ -10,18 +6,30 @@ import {ListStyle} from './styles/index'
 
 
 export default function MovieList() {
-const {movies} = React.useContext(MoviesContext);
+const {movies, query} = React.useContext(MoviesContext);
 
 console.log(movies);
+console.log(query.length);
 
+if (movies.length === 0 && query.length === 0) return <Loading/>
 
-if (movies.length === 0) return <Loading/>
+if(query.length === 20) return (
+    <>
+       <ListStyle>
+        {query.map(item => {
+            return <MovieCard key={item.id} {...item}/>
+        })}
+        </ListStyle>
+    </>
+    )
 
-return (
+else return (
+    <>
        <ListStyle>
         {movies.map(item => {
             return <MovieCard key={item.id} {...item}/>
         })}
         </ListStyle>
+    </>
     )
 }

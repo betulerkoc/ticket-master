@@ -15,18 +15,6 @@ class Button extends Component {
             test: e.target,
         });
     }
-    
-
-    // render() {
-    //     const { name } = this.props;
-    //     return (
-    //         <StyledButton onClick={this.handleOnClick}>Hello {name}</StyledButton>
-    //     );
-    // }
 }
-
-// const Button = (props) => {
-//     <StyledButton>Hello {props.name}</StyledButton>
-// };
 
 export default Button;
