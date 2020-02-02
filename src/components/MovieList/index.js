@@ -3,6 +3,7 @@ import MovieCard from './MovieCard'
 import {MoviesContext} from '../../context/movies'
 import {Loading} from '../Loading/index'
 import {ListStyle} from './styles/index'
+import Pagination from '../Pagination/index'
 
 
 export default function MovieList() {
@@ -20,6 +21,7 @@ if(query.length === 20) return (
             return <MovieCard key={item.id} {...item}/>
         })}
         </ListStyle>
+        <Pagination/>
     </>
     )
 
@@ -30,6 +32,7 @@ else return (
             return <MovieCard key={item.id} {...item}/>
         })}
         </ListStyle>
+        <Pagination/>
     </>
     )
 }

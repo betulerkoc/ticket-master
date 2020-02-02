@@ -2,8 +2,7 @@ import React from 'react'
 import {BoxStyle, StyledLink} from './styles/index'
 
 export default function MovieCard({name, id, dates, images, classifications}) {
-    const url= "http://app.ticketmaster.com/";
-    
+
     return (
         <>
             <BoxStyle>

@@ -9,7 +9,7 @@ export default function Search() {
     const {query, onInputChange, onSubmitHandler} = React.useContext(MoviesContext);
 
     return (
-        <SearchComp value={query}>
+        <SearchComp value={query.keyValue}>
             <form onSubmit={onSubmitHandler}>
               <input 
                 name="userInput"
