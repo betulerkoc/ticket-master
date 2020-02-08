@@ -4,7 +4,7 @@ import {MoviesContext} from '../../context/movies'
 const Pagination = () => {
   const pageNumbers = [];
   const {movies, onPageNumberChange} = React.useContext(MoviesContext);
-  console.log(movies.length);
+//  console.log(movies.length);
 
 //   for (let i = 1; i <= movies.length; i++) {
   for (let i = 1; i <= 10; i++) {
@@ -12,7 +12,6 @@ const Pagination = () => {
   }
 
   return (
-    <>
     <nav>
       <ul>
         {pageNumbers.map(number => (
@@ -24,7 +23,6 @@ const Pagination = () => {
         ))}
       </ul>
     </nav>
-    </>
   );
 };
 

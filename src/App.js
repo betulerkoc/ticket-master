@@ -8,13 +8,11 @@ import {Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
-    <>
     <Switch>
         <Route exact path="/"> <Home/> </Route>
         <Route path="/:id" children={<Detail></Detail>}/>
         <Route component={Error}/> 
     </Switch> 
-    </>
   );
 }
 

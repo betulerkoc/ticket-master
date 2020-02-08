@@ -1,7 +1,7 @@
 import React from 'react'
 import {SearchComp} from './styles/index'
 import {MoviesContext} from '../../context/movies'
-import MovieProvider from '../../context/movies'
+import Button from '../Button/index'
 
 
 export default function Search() {
@@ -9,15 +9,16 @@ export default function Search() {
     const {query, onInputChange, onSubmitHandler} = React.useContext(MoviesContext);
 
     return (
-        <SearchComp value={query.keyValue}>
-            <form onSubmit={onSubmitHandler}>
+        // <SearchComp value={query.keyValue}>
+            <form onSubmit={onSubmitHandler} className="search">
               <input 
                 name="userInput"
                 onChange={onInputChange}          
                 type="search"
+                id="search-input"
               ></input>
-              <button type="submit">Search</button>
+              <Button type="submit" name="Search"></Button>
             </form>
-        </SearchComp>
+        // </SearchComp>
     )
 }

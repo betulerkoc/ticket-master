@@ -1,20 +1,9 @@
 import StyledButton from './styles';
-import { Component } from 'react';
 
-class Button extends Component {
-    constructor(props) {
-        super(props);
+import React from 'react'
 
-        this.state({
-            test: '',
-        });
-    }
-
-    handleOnClick = (e) => {
-        this.setState({
-            test: e.target,
-        });
-    }
+export default function Button(props) {
+    return (
+    <StyledButton data-test="go-to">{props.name}</StyledButton>
+    )
 }
-
-export default Button;
