@@ -1,29 +1,42 @@
 import React from 'react';
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import {MoviesContext} from '../../context/movies'
+import {PaginationStyle} from './style/index'
 
 const Pagination = () => {
-  const pageNumbers = [];
-  const {movies, onPageNumberChange} = React.useContext(MoviesContext);
-//  console.log(movies.length);
 
-//   for (let i = 1; i <= movies.length; i++) {
-  for (let i = 1; i <= 10; i++) {
-    pageNumbers.push(i);
-  }
+  const {movies, onPageNumberChange, query, totalPage} = React.useContext(MoviesContext);
+   let page = query.pageNumber;
+   console.log(totalPage);
+   console.log(movies.length);
 
-  return (
-    <nav>
-      <ul>
-        {pageNumbers.map(number => (
-          <li key={number}>
-            <a onClick={() => onPageNumberChange(number + 1)}>
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
+  if (totalPage) {
+    return (
+      <PaginationStyle>
+        {totalPage > 1 && (
+          <div>
+            {page > 0 && (
+              <button
+                onClick={() => onPageNumberChange(page - 1)}>
+                <FaAngleDoubleLeft></FaAngleDoubleLeft>
+              </button>
+            )}
+            {page < totalPage - 1 && (
+              <button onClick={() => onPageNumberChange(page + 1)}>
+                <FaAngleDoubleRight></FaAngleDoubleRight>
+              </button>
+            )}
+          </div>
+        )}
+      </PaginationStyle>
+    );
+  } else {
+    return (
+      <h3>
+        No Result
+      </h3>
+    );
+}
 };
 
 export default Pagination;

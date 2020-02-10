@@ -1,18 +1,20 @@
 import React from 'react';
-import './App.css';
 import Home from './pages/Home';
+import Header from './components/Header/index'
 import Detail from './pages/Detail';
-import Error from './pages/Error';
 import {Route, Switch} from 'react-router-dom'; 
+import {StyledMovie} from './style'
 
 
 function App() {
   return (
-    <Switch>
-        <Route exact path="/"> <Home/> </Route>
-        <Route path="/:id" children={<Detail></Detail>}/>
-        <Route component={Error}/> 
-    </Switch> 
+    <StyledMovie>
+      <Header/>
+      <Switch>
+          <Route exact path="/"> <Home/> </Route>
+          <Route path="/:id" children={<Detail></Detail>}/>
+      </Switch> 
+    </StyledMovie>
   );
 }
 

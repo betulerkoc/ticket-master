@@ -1,9 +1,8 @@
-import StyledButton from './styles';
-
+import StyledButton from './styles/index';
 import React from 'react'
 
 export default function Button(props) {
     return (
-    <StyledButton data-test="go-to">{props.name}</StyledButton>
+    <StyledButton>{props.name}</StyledButton>
     )
 }

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import styled from 'styled-components'
 
 export const SearchComp = styled.div`
@@ -7,7 +8,7 @@ export const SearchComp = styled.div`
     /* buttonu düzelt */
     button{  
         margin: 20px;
-        background: #e9b2bc;
-        color: white;
+        background: white;
+        color: #00001a;
     }
 `

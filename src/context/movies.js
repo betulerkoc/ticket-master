@@ -1,13 +1,12 @@
 import React from 'react'
-import Error from '../pages/Error'
-
 
 export const MoviesContext = React.createContext({});
 
 export default function MovieProvider({children}) {
     const [movies, setMovies] = React.useState([]);
+    const [totalPage, setTotalPage] = React.useState(0);
     const [query, setQuery] = React.useState({
-        pageSize: 10,
+        pageSize: 30,
         pageNumber: 0
     });
 
@@ -23,13 +22,11 @@ export default function MovieProvider({children}) {
                 result = data._embedded.events;
             }
             setMovies(result);
-
+            setTotalPage(data.page.totalPages);
           })
     };
 
-    React.useEffect(() => {
-        getSearchedMovies();
-    }, []);
+    //console.log(totalPage);
 
     const onInputChange = (e) => {
         setQuery({...query, keyword: e.target.value});
@@ -38,11 +35,7 @@ export default function MovieProvider({children}) {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         getSearchedMovies();
-        console.log(query);
-    };
-
-    const onPageSizeChange = (pageSize) => {
-        setQuery({...query, pageSize});
+        console.log(movies);
     };
 
     const onPageNumberChange = (pageNumber) => {
@@ -50,8 +43,10 @@ export default function MovieProvider({children}) {
         getSearchedMovies();
     };
 
+    //console.log(query.pageNumber);
+
     return (
-        <MoviesContext.Provider value={{movies,query, onInputChange, onPageNumberChange, onPageSizeChange, onSubmitHandler}}>
+        <MoviesContext.Provider value={{movies, query, onInputChange, onPageNumberChange, onSubmitHandler,totalPage}}>
             {children}
         </MoviesContext.Provider>
     )

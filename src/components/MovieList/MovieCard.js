@@ -1,30 +1,37 @@
 import React from 'react'
 import {BoxStyle, StyledLink} from './styles/index'
 import Button from '../Button/index'
+import PropTypes from 'prop-types';
 
-export default function MovieCard({name, id, dates, images, classifications}) {
+export default function MovieCard({movieName, id, dates, images, type, category}) {
 
     return (
             <BoxStyle>
                 <StyledLink to={id}>  
-                {/* <a href="#"><img src={images[0].url} alt="" style={{height: "150px"}}/></a> 
-                <div> */}
-                <h1>X</h1>
-                <h4>Name:{name}</h4>
-                {/* <p>Date:{dates.start.localDate}</p> */}
-                    {/* <p>
-                       Category:  {classifications[0].segment.name}
-                    </p>
-                    <p>
-                       Genre:  {classifications[0].genre.name}
-                    </p>
-                    <p>
-                       Date: {dates.start.localDate}
-                    </p>
-                </div> */}
-                {console.log(id)}
+                <a href="#"><img src={images} alt="" style={{height: "150px"}}/></a> 
+                <div> 
+                <h4>Name:{movieName}</h4>
+                  <p>Type:  {type} </p>
+                  <p>Date:{dates}</p>
+                </div>
+               
              <Button name="Details"></Button></StyledLink>
             </BoxStyle>
     )
+}
+
+MovieCard.propTypes = {
+   id:PropTypes.string,
+   movieName:PropTypes.string,
+   images:PropTypes.string,
+   category:PropTypes.string,
+   genre:PropTypes.string
+}
+
+MovieCard.defaultProps = {
+   movieName:"Unknown Movie",
+   image:"https://image.shutterstock.com/image-vector/silhouette-people-unknown-male-person-260nw-1372192277.jpg",
+   category:"Unknown category",
+   genre:"Unknown genre",
 }
 
