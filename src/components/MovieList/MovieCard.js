@@ -8,7 +8,7 @@ export default function MovieCard({movieName, id, dates, images, type, category}
     return (
             <BoxStyle>
                 <StyledLink to={id}>  
-                <a href="#"><img src={images} alt="" style={{height: "150px"}}/></a> 
+                <a href="/"><img src={images} alt="" style={{height: "150px"}}/></a> 
                 <div> 
                 <h4>Name:{movieName}</h4>
                   <p>Type:  {type} </p>
